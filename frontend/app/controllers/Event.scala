@@ -65,6 +65,15 @@ trait Event extends Controller {
     Ok(views.html.event.page(event, pageInfo))
   }
 
+  def calendar(id: String) = CachedAction { implicit request =>
+    EventbriteService.getEvent(id).map { event =>
+      Ok(views.html.event.ical(event)).withHeaders(
+        CONTENT_TYPE -> "text/calendar",
+        CONTENT_DISPOSITION -> "attachment; filename=calendar.ics"
+      )
+    }.getOrElse(NotFound)
+  }
+
   def masterclasses = CachedAction { implicit request =>
     val pageInfo = PageInfo(
       CopyConfig.copyTitleMasterclasses,
