@@ -1,0 +1,27 @@
+@import configuration.Config
+
+<section class="newsletter-signup">
+    <div class="newsletter-signup__leadin">
+        <h3 class="newsletter-signup__title h-intro">sign up to our newsletter</h3>
+    </div>
+    <div class="newsletter-signup__content">
+        <ul class="grid grid--3up">
+            <li class="grid__item">
+                        Every week, Guardian membership adds new offers plus exclusive competitions you'll only find on Guardian Membership. Sign up to have the weekly newsletter delivered directly to your inbox.
+            </li>
+            <li class="grid__item">
+                        The newsletter will be sent to:
+                <h3> ADD EMAIL ADDRESS </h3>
+                <a class="action action--booking" href="" itemprop="url">Sign up</a>
+                <p class="signout copy">Not you? <a href="@Config.idWebAppSignOutThenInUrl(routes.Offers.subscriber.toString)">Sign out</a></p>
+            </li>
+            <li class="grid__item">
+                <div class="newsletter-signup__close">
+                    <div class="icon-holder icon-holder--white">
+                    @fragments.inlineIcon("cross")
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
